@@ -1,4 +1,5 @@
 import React from 'react';
+import { useHistory } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { addToDo } from '../actions';
 import Button from 'react-bootstrap/Button';
@@ -7,6 +8,7 @@ import InputGroup from 'react-bootstrap/InputGroup';
 
 let AddToDo = ({ dispatch }) => {
   let input;
+  let history = useHistory();
 
   return (
     <Form
@@ -17,6 +19,7 @@ let AddToDo = ({ dispatch }) => {
         }
         dispatch(addToDo(input.value));
         input.value = '';
+        history.push('/');
       }}
     >
       <Form.Group controlId="formBasicEmail">

@@ -17,7 +17,7 @@ class App extends Component {
             <h1>To Do List</h1>
             <Navigation />
             <Route exact path="/" component={ToDoListContainer} />
-            <Route exaxt path="/new-item" component={AddToDo} />
+            <Route exact path="/new-item" component={AddToDo} />
           </Col>
         </Row>
       </Container>
