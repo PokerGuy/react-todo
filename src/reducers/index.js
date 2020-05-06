@@ -1,5 +1,4 @@
-import { ADD_TODO } from '../actions';
-import { RENDER_TODO_LIST } from '../actions';
+import { ADD_TODO, DELETE_TODO, RENDER_TODO_LIST } from '../actions';
 
 const initialState = {
   toDoList: [],
@@ -22,6 +21,14 @@ export default function toDoApp(state = initialState, action) {
       return {
         ...state,
         toDoList: newToDoList,
+      };
+    case DELETE_TODO:
+      let filteredToDoList = state.toDoList.filter(
+        (todo) => todo._id !== action._id
+      );
+      return {
+        ...state,
+        toDoList: filteredToDoList,
       };
     default:
       return state;

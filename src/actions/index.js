@@ -1,4 +1,5 @@
 export const ADD_TODO = 'ADD_TODO';
+export const DELETE_TODO = 'DELETE_TODO';
 export const LOAD_TODO_LIST = 'LOAD_TODO_LIST';
 export const RENDER_TODO_LIST = 'RENDER_TODO_LIST';
 
@@ -9,6 +10,13 @@ export function addToDo(title) {
       _id: new Date().getTime(),
       title,
     },
+  };
+}
+
+export function deleteToDo(_id) {
+  return {
+    type: DELETE_TODO,
+    _id,
   };
 }
 
