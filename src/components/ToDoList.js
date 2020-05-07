@@ -16,8 +16,10 @@ const alphabetize = (a, b) => {
   return comparison;
 };
 
-const ToDoList = ({ toDoList, deleteToDo }) => {
-  if (toDoList.length > 0) {
+const ToDoList = ({ toDoList, loading, deleteToDo }) => {
+  if (loading) {
+    return <div>Loading...</div>;
+  } else if (toDoList.length > 0) {
     return (
       <div>
         <Jumbotron>

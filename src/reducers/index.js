@@ -1,7 +1,13 @@
-import { ADD_TODO, DELETE_TODO, RENDER_TODO_LIST } from '../actions';
+import {
+  ADD_TODO,
+  DELETE_TODO,
+  RENDER_TODO_LIST,
+  SET_LOADING,
+} from '../actions';
 
 const initialState = {
   toDoList: [],
+  loading: false,
 };
 
 export default function toDoApp(state = initialState, action) {
@@ -29,6 +35,11 @@ export default function toDoApp(state = initialState, action) {
       return {
         ...state,
         toDoList: filteredToDoList,
+      };
+    case SET_LOADING:
+      return {
+        ...state,
+        loading: action.isLoading,
       };
     default:
       return state;

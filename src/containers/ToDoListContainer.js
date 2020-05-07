@@ -5,6 +5,7 @@ import { deleteToDo } from '../actions';
 const mapStateToProps = (state) => {
   return {
     toDoList: state.toDoList,
+    loading: state.loading,
   };
 };
 
