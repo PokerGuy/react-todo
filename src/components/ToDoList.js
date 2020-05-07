@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import ListGroup from 'react-bootstrap/ListGroup';
 import Jumbotron from 'react-bootstrap/Jumbotron';
+import Row from 'react-bootstrap/Row';
 import ToDo from './ToDo';
 
 const alphabetize = (a, b) => {
@@ -15,15 +16,24 @@ const alphabetize = (a, b) => {
   return comparison;
 };
 
-const ToDoList = ({ toDoList, deleteToDo }) => (
-  <Jumbotron>
-    <ListGroup>
-      {toDoList.sort(alphabetize).map((toDo, index) => (
-        <ToDo key={index} {...toDo} deleteToDo={deleteToDo} />
-      ))}
-    </ListGroup>
-  </Jumbotron>
-);
+const ToDoList = ({ toDoList, deleteToDo }) => {
+  if (toDoList.length > 0) {
+    return (
+      <div>
+        <Jumbotron>
+          <ListGroup>
+            {toDoList.sort(alphabetize).map((toDo, index) => (
+              <ToDo key={index} {...toDo} deleteToDo={deleteToDo} />
+            ))}
+          </ListGroup>
+        </Jumbotron>
+        <Row>Number of Items: {toDoList.length}</Row>
+      </div>
+    );
+  } else {
+    return <div>Nothing to do...</div>;
+  }
+};
 
 ToDoList.propTypes = {
   toDoList: PropTypes.arrayOf(
